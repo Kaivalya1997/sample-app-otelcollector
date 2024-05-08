@@ -22,7 +22,8 @@ metrics.set_meter_provider(
         resource=resource,
         metric_readers=[
             PeriodicExportingMetricReader(
-                OTLPMetricExporter(endpoint=collector_endpoint, insecure=True)
+                OTLPMetricExporter(endpoint=collector_endpoint, insecure=True),
+                export_interval_millis=10
             )
         ]
     )
